@@ -4,13 +4,14 @@ import StatItem from './StatItem';
 import PropTypes from 'prop-types';
 
 const Statistics = ({ title, stats }) => {
-  const elements = stats.map(({ id, ...props }) => (
-    <StatItem key={id} {...props} />
-  ));
   return (
     <section className={s.statistics}>
       {title ? <h2 className={s.title}>{title}</h2> : null}
-      <ul className={s.statList}>{elements}</ul>
+      <ul className={s.statList}>
+        {stats.map(({ id, ...props }) => (
+          <StatItem key={id} {...props} />
+        ))}
+      </ul>
     </section>
   );
 };

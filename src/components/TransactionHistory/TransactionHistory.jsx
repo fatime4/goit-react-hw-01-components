@@ -4,9 +4,6 @@ import PropTypes from 'prop-types';
 import s from './TransactionHistory.module.css';
 
 const TransactionHistory = ({ items }) => {
-  const elements = items.map(({ id, ...props }) => (
-    <TransactionHistoryItem key={id} {...props} />
-  ));
   return (
     <table className={s.transactionHistory}>
       <thead className={s.thead}>
@@ -17,7 +14,11 @@ const TransactionHistory = ({ items }) => {
         </tr>
       </thead>
 
-      <tbody className={s.tbody}>{elements}</tbody>
+      <tbody className={s.tbody}>
+        {items.map(({ id, ...props }) => (
+          <TransactionHistoryItem key={id} {...props} />
+        ))}
+      </tbody>
     </table>
   );
 };

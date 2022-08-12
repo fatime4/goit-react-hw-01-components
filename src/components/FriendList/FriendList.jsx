@@ -4,10 +4,13 @@ import FriendsListItem from './FriendListItem';
 import PropTypes from 'prop-types';
 
 const FriendList = ({ friends }) => {
-  const elements = friends.map(({ id, ...props }) => (
-    <FriendsListItem key={id} {...props} />
-  ));
-  return <ul className={s.friendsList}>{elements}</ul>;
+  return (
+    <ul className={s.friendsList}>
+      {friends.map(({ id, ...props }) => (
+        <FriendsListItem key={id} {...props} />
+      ))}
+    </ul>
+  );
 };
 
 export default FriendList;
